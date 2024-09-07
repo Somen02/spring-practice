@@ -9,7 +9,7 @@ public class ExampleServiceApplication {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext run = SpringApplication.run(ExampleServiceApplication.class, args);
+		SpringApplication.run(ExampleServiceApplication.class, args);
 	}
 
 }
