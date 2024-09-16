@@ -88,6 +88,7 @@ public class StreamExample {
         System.out.println(Arrays.toString(array));
 
 
+        //frequency of each character
         String name="somen sem";
         Map<Character, Long> collect2 = name.chars().mapToObj(ac -> (char) ac)
                 .filter(e -> !Character.isWhitespace(e))
@@ -106,12 +107,34 @@ public class StreamExample {
 //                .sorted()
                 .mapToObj(ac -> (char) ac)
                 .filter(e -> !Character.isWhitespace(e))
+//                .mapToObj(String::valueOf)
                 .map(String::valueOf)
                 .collect(Collectors.joining());
         System.out.println(collect3);
 
         System.out.println(100+100+"java");
         System.out.println("java"+100+100);
+
+        String str = "    Geeks     for Geeks     ";
+        String op = str.chars()
+                .filter(e -> !Character.isWhitespace(e))
+                .mapToObj(e -> String.valueOf((char) e))
+                .collect(Collectors.joining());
+
+        System.out.println(op);
+
+
+        //Q:-convert first charecter to uppercase in a given string
+
+        String dum= "my name is somen";
+
+        String splitDum[] = dum.split(" ");
+        String updatedDum = Arrays.stream(splitDum)
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1))
+                .collect(Collectors.joining(" "));
+        System.out.println("The update string is "+ updatedDum);
+
+
     }
 
 
