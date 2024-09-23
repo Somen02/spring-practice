@@ -3,7 +3,7 @@ package DataStructure.bitoperation;
 public class RightMostSetBit {
 
     public static void main(String[] args) {
-        int n=18;
+        int n=100;
 
         //Position of rightmost set bit
         posRightMostSetBit(n);
@@ -14,6 +14,10 @@ public class RightMostSetBit {
         int pos=1;
         int m=1;
 
+        if(n==0){
+            System.out.println("position is: "+0);
+            return;
+        }
         while((n&m)==0){
             m=m<<1;
             pos++;
