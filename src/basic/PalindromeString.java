@@ -6,7 +6,7 @@ package basic;
 public class PalindromeString {
 
     public static void main(String args[]) {
-        String name = "DADad";
+        String name = "daaad";
         String pal="";
 
         for (int i = name.length() - 1; i >= 0; i--) {
@@ -18,5 +18,20 @@ public class PalindromeString {
         else{
             System.out.println("not a palindrome");
         }
+
+        if(checkPalindrome(name,0,name.length()-1)){
+            System.out.println("palindrome String");
+        }
+        else {
+            System.out.println("not a palindrome");
+        }
+    }
+
+    private static boolean checkPalindrome(String name, int start, int end) {
+
+        if(start>=end){
+            return true;
+        }
+        return (name.charAt(start)==name.charAt(end)) && checkPalindrome(name,start+1,end-1);
     }
 }
