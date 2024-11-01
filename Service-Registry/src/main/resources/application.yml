@@ -1,0 +1,9 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #it will let us know it is not registered as client
+    fetch-registry: false
+
+server:
+  port: 8761
