@@ -40,13 +40,14 @@ public class StreamExample {
                 .map(x -> x / 20)
                 .distinct()
                 .peek(System.out::println) //use to print the elements
-                .max((a, b) ->  b-a).get();
-        System.out.println(i);
+                .max((a,b)->a-b).get();
+        System.out.println("num="+i);
 
         //Find the sum of all elements using a stream
         List<Integer> li =Arrays.asList(1,5,2,3,45,3,1,4);
         int sum1 = li.stream().mapToInt(Integer::intValue).sum();
-        System.out.println(sum1);
+
+        System.out.println("sum="+sum1);
 
         //Find the maximum element using streams
 //        Integer max = li.stream().max((a, b) -> a - b).get();
@@ -82,12 +83,19 @@ public class StreamExample {
                 .map(Map.Entry::getKey)
                 .forEach(System.out::println);
 
+//        li.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()))
+//                .entrySet().stream()
+//                .filter(e->e.getValue()>1)
+//                .map(Map.Entry::getKey)
+//                .forEach(System.out::println);
+
 
         int[] ar2 = {9,10,11,12,32,8};
         int[] array = IntStream.concat(Arrays.stream(ar), Arrays.stream(ar2)).sorted().toArray();
         System.out.println(Arrays.toString(array));
 
 
+        //frequency of each character
         String name="somen sem";
         Map<Character, Long> collect2 = name.chars().mapToObj(ac -> (char) ac)
                 .filter(e -> !Character.isWhitespace(e))
@@ -106,12 +114,34 @@ public class StreamExample {
 //                .sorted()
                 .mapToObj(ac -> (char) ac)
                 .filter(e -> !Character.isWhitespace(e))
+//                .mapToObj(String::valueOf)
                 .map(String::valueOf)
                 .collect(Collectors.joining());
         System.out.println(collect3);
 
         System.out.println(100+100+"java");
         System.out.println("java"+100+100);
+
+        String str = "    Geeks     for Geeks     ";
+        String op = str.chars()
+                .filter(e -> !Character.isWhitespace(e))
+                .mapToObj(e -> String.valueOf((char) e))
+                .collect(Collectors.joining());
+
+        System.out.println(op);
+
+
+        //Q:-convert first charecter to uppercase in a given string
+
+        String dum= "my name is somen";
+
+        String splitDum[] = dum.split(" ");
+        String updatedDum = Arrays.stream(splitDum)
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1))
+                .collect(Collectors.joining(" "));
+        System.out.println("The update string is "+ updatedDum);
+
+
     }
 
 
