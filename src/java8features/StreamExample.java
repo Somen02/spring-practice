@@ -40,13 +40,14 @@ public class StreamExample {
                 .map(x -> x / 20)
                 .distinct()
                 .peek(System.out::println) //use to print the elements
-                .max((a, b) ->  b-a).get();
-        System.out.println(i);
+                .max((a,b)->a-b).get();
+        System.out.println("num="+i);
 
         //Find the sum of all elements using a stream
         List<Integer> li =Arrays.asList(1,5,2,3,45,3,1,4);
         int sum1 = li.stream().mapToInt(Integer::intValue).sum();
-        System.out.println(sum1);
+
+        System.out.println("sum="+sum1);
 
         //Find the maximum element using streams
 //        Integer max = li.stream().max((a, b) -> a - b).get();
@@ -81,6 +82,12 @@ public class StreamExample {
                 .filter(e->e.getValue()>1)
                 .map(Map.Entry::getKey)
                 .forEach(System.out::println);
+
+//        li.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()))
+//                .entrySet().stream()
+//                .filter(e->e.getValue()>1)
+//                .map(Map.Entry::getKey)
+//                .forEach(System.out::println);
 
 
         int[] ar2 = {9,10,11,12,32,8};

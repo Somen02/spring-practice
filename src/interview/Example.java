@@ -1,8 +1,6 @@
 package interview;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Example {
@@ -20,6 +18,17 @@ public class Example {
         Map<String, List<Employee>> collect = listEmployee.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 
         System.out.println(collect);
+        Vector<String> v= new Vector<>(2);
+        v.add("a");
+//        v.add("b");
+//        v.add("c");
+//        v.add("b");
+//        v.add("c");
+
+        Iterator<String> iterator = v.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
 
     }
 }
