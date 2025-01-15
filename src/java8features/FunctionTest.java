@@ -21,6 +21,7 @@ public class FunctionTest {
         Student somen = new Student(1, "somen");
         Student ram = new Student(2, "Ram");
         Student somya = new Student(1, "somya");
+        
         List<Student> students = Arrays.asList(somen,ram,somya);
         List<Student> result = studentStartWithSom.apply(students);
         System.out.println(result);

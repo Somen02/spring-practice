@@ -5,7 +5,8 @@ import java.util.*;
 //functional interface and lambdaexpression
 public class LambdaExample {
     public static void main(String[] args) {
-        Dummy dum = () -> "Somen";
+        int loss=0;
+        Dummy dum = () -> 10+loss+"Somen";
         System.out.println("name is " + dum.getName());
         
 
@@ -15,7 +16,7 @@ public class LambdaExample {
             }
         };
         Thread childThread = new Thread(runnable);
-        childThread.run();
+        childThread.start();
 
 
         List<Integer> numbers = new ArrayList<>();
