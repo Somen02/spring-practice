@@ -20,7 +20,7 @@ public class PrimeNumber {
             }
 
         }
-        int num=12;
+        int num=13;
         System.out.println();
         System.out.println(num+" is prime: "+isPrimeNaive(num));//O(n) time complexity
         System.out.println(num+" is prime: "+isPrimeOptimized(num));//O(sqrt(n)) time complexity

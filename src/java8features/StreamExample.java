@@ -97,7 +97,8 @@ public class StreamExample {
 
         //frequency of each character
         String name="somen sem";
-        Map<Character, Long> collect2 = name.chars().mapToObj(ac -> (char) ac)
+        Map<Character, Long> collect2 = name.chars()
+                .mapToObj(ac -> (char) ac)
                 .filter(e -> !Character.isWhitespace(e))
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
